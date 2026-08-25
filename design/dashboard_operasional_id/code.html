@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dashboard Operasional - Khitan Center</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#fafafa",
+                    "on-error-container": "#fca5a5",
+                    "error": "#ef4444",
+                    "primary-container": "#7c3aed",
+                    "tertiary-container": "#065f46",
+                    "surface-container-high": "#18181b",
+                    "surface-container": "#121215",
+                    "on-primary-fixed": "#2e1065",
+                    "on-tertiary-container": "#bbf7d0",
+                    "on-primary-fixed-variant": "#5b21b6",
+                    "surface-container-lowest": "#09090b",
+                    "surface-variant": "#18181b",
+                    "surface-container-highest": "#1e1e22",
+                    "on-primary-container": "#ede9fe",
+                    "error-container": "#3b1111",
+                    "on-background": "#fafafa",
+                    "on-tertiary": "#001a12",
+                    "primary": "#a78bfa",
+                    "on-tertiary-fixed-variant": "#047857",
+                    "primary-fixed": "#ede9fe",
+                    "inverse-surface": "#fafafa",
+                    "inverse-primary": "#5b21b6",
+                    "outline": "#52525b",
+                    "surface-tint": "#a78bfa",
+                    "outline-variant": "#27272a",
+                    "on-secondary-fixed-variant": "#3f3f46",
+                    "tertiary-fixed-dim": "#6ee7b7",
+                    "secondary-fixed": "#a1a1aa",
+                    "on-secondary": "#09090b",
+                    "on-surface-variant": "#a1a1aa",
+                    "on-secondary-container": "#a1a1aa",
+                    "surface": "#0c0c0f",
+                    "secondary-fixed-dim": "#71717a",
+                    "background": "#09090b",
+                    "secondary-container": "#27272a",
+                    "on-error": "#1a0000",
+                    "inverse-on-surface": "#09090b",
+                    "tertiary": "#34d399",
+                    "surface-dim": "#0c0c0f",
+                    "on-tertiary-fixed": "#003318",
+                    "primary-fixed-dim": "#c4b5fd",
+                    "surface-container-low": "#0f0f12",
+                    "secondary": "#71717a",
+                    "on-secondary-fixed": "#18181b",
+                    "on-primary": "#0a0012",
+                    "surface-bright": "#18181b",
+                    "tertiary-fixed": "#bbf7d0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Geist", "sans-serif"],
+                    "display": ["Geist", "sans-serif"],
+                    "body": ["Geist", "sans-serif"],
+                    "label": ["Geist", "sans-serif"]
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body h-screen overflow-hidden flex antialiased">
+<!-- SideNavBar (Shared Component) -->
+<nav class="bg-surface-container-lowest h-screen w-64 border-r border-outline-variant flex flex-col h-full overflow-y-auto hidden md:flex shrink-0">
+<!-- Header -->
+<div class="p-6 flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container border border-outline-variant overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A macro shot of a sleek, dark metallic clinic administrator badge with a subtle purple holographic sheen, resting on a matte black surface under highly controlled studio lighting. The aesthetic is extremely clean, precise, and tech-forward." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXgudD0C-ab6F7mlnUazT6HCNGFyj7-lWIzNIDRn84kdnLzQA-ncdOivtUUqVW_T4P9m6R0CQls4IFLnqzFZOBXH4OaxiTbe9rgLL8gg5j7_yAq1wOHlgggcET3RwtBatz6x7PR8MjOjWi4SC2x0JIeY86SyjRDwZjhF63mgoTt6mG_YUa6WXSyOHPEE2iE3mg3nAqQIa8NaoFpOETLkxZB7GOMOipzNqPqQ-O_DYH94Ow6PiZwvPWcQ"/>
+</div>
+<div>
+<h1 class="text-xl font-headline font-bold text-on-surface tracking-tighter">Khitan Center</h1>
+<p class="font-body text-label-sm tracking-normal text-on-surface-variant">Perawatan Presisi</p>
+</div>
+</div>
+<!-- CTA -->
+<div class="px-4 pb-4 border-b border-outline-variant">
+<button class="w-full bg-primary text-on-primary font-body text-sm font-bold py-2.5 px-4 rounded-DEFAULT flex items-center justify-center gap-2 hover:bg-primary-fixed-dim transition-colors duration-200 active:scale-95">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">add</span>
+                Pemesanan Baru
+            </button>
+</div>
+<!-- Tabs -->
+<ul class="flex-1 py-4 flex flex-col gap-1 px-3">
+<!-- Active Tab -->
+<li>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-DEFAULT text-primary border-r-2 border-primary bg-surface-container-high font-bold font-body text-label-sm tracking-normal transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
+                    Operasional
+                </a>
+</li>
+<!-- Inactive Tabs -->
+<li>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-DEFAULT text-on-surface-variant hover:text-on-surface hover:bg-surface-container hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 transition-transform font-body text-label-sm tracking-normal" href="#">
+<span class="material-symbols-outlined">payments</span>
+                    Kasir
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-DEFAULT text-on-surface-variant hover:text-on-surface hover:bg-surface-container hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 transition-transform font-body text-label-sm tracking-normal" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+                    Akuntansi
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-DEFAULT text-on-surface-variant hover:text-on-surface hover:bg-surface-container hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 transition-transform font-body text-label-sm tracking-normal" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+                    Inventaris
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-DEFAULT text-on-surface-variant hover:text-on-surface hover:bg-surface-container hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 transition-transform font-body text-label-sm tracking-normal" href="#">
+<span class="material-symbols-outlined">hub</span>
+                    Pelanggan
+                </a>
+</li>
+</ul>
+<!-- Footer Tabs -->
+<div class="p-4 border-t border-outline-variant">
+<ul class="flex flex-col gap-1">
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-on-surface-variant hover:text-on-surface hover:bg-surface-container hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 transition-transform font-body text-label-sm tracking-normal" href="#">
+<span class="material-symbols-outlined">settings</span>
+                        Pengaturan
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-on-surface-variant hover:text-on-surface hover:bg-surface-container hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 transition-transform font-body text-label-sm tracking-normal" href="#">
+<span class="material-symbols-outlined">help</span>
+                        Bantuan
+                    </a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col h-screen overflow-hidden">
+<!-- TopAppBar (Shared Component) -->
+<header class="bg-surface-container docked full-width top-0 h-16 flex justify-between items-center px-6 w-full sticky top-0 z-50 border-b border-outline-variant shrink-0">
+<!-- Left: Brand & Search -->
+<div class="flex items-center gap-6">
+<h2 class="text-lg font-black text-on-surface font-headline tracking-tight hidden lg:block">Obsidian Khitan</h2>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">search</span>
+<input class="bg-surface-container-lowest border border-outline-variant rounded-DEFAULT pl-10 pr-4 py-1.5 text-sm w-64 text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-all focus:border-primary" placeholder="Cari catatan..." type="text"/>
+</div>
+</div>
+<!-- Right: Actions -->
+<div class="flex items-center gap-2">
+<button class="text-on-surface-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background p-2 rounded-full flex items-center justify-center ml-2">
+<span class="material-symbols-outlined text-[28px]">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Scrollable Dashboard Content -->
+<main class="flex-1 overflow-y-auto p-6 lg:p-8 space-y-8">
+<!-- Header Section -->
+<div class="flex justify-between items-end">
+<div>
+<h1 class="font-headline text-3xl font-bold tracking-tight text-on-surface">Ikhtisar Operasional</h1>
+<p class="font-body text-sm text-on-surface-variant mt-1">Status real-time untuk prosedur hari ini.</p>
+</div>
+<div class="hidden sm:flex items-center gap-2 text-xs font-mono text-on-surface-variant bg-surface-container px-3 py-1.5 rounded border border-outline-variant">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+                    Pembaruan Langsung
+                </div>
+</div>
+<!-- Bento Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 auto-rows-min">
+<!-- Queue Status Cards (Top Row) -->
+<div class="col-span-1 lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
+<!-- Menunggu -->
+<div class="bg-surface-container border border-outline-variant rounded-xl p-6 relative overflow-hidden group hover:border-outline transition-colors duration-300 flex flex-col justify-between h-40">
+<div class="absolute -right-6 -top-6 w-24 h-24 bg-surface-container-highest rounded-full opacity-50 group-hover:scale-110 transition-transform duration-500"></div>
+<div class="flex justify-between items-start relative z-10">
+<span class="font-body text-sm font-medium text-on-surface-variant">Menunggu</span>
+<span class="material-symbols-outlined text-on-surface-variant">hourglass_empty</span>
+</div>
+<div class="relative z-10">
+<h3 class="font-headline text-4xl font-bold text-on-surface tracking-tighter">14</h3>
+<div class="flex items-center gap-1 mt-1 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px] text-tertiary">arrow_upward</span>
+<span>+2 dalam jam terakhir</span>
+</div>
+</div>
+</div>
+<!-- Tindakan -->
+<div class="bg-surface-container border border-outline-variant rounded-xl p-6 relative overflow-hidden group hover:border-primary/50 transition-colors duration-300 flex flex-col justify-between h-40 ring-1 ring-inset ring-transparent hover:ring-primary/20 shadow-[0_0_15px_rgba(167,139,250,0.0)] hover:shadow-[0_0_15px_rgba(167,139,250,0.1)]">
+<div class="absolute -right-6 -top-6 w-24 h-24 bg-primary/10 rounded-full opacity-50 group-hover:scale-110 transition-transform duration-500"></div>
+<div class="flex justify-between items-start relative z-10">
+<span class="font-body text-sm font-medium text-primary">Tindakan</span>
+<span class="material-symbols-outlined text-primary animate-pulse">healing</span>
+</div>
+<div class="relative z-10">
+<h3 class="font-headline text-4xl font-bold text-on-surface tracking-tighter">3</h3>
+<div class="flex items-center gap-2 mt-1">
+<div class="flex -space-x-2">
+<img class="w-5 h-5 rounded-full border border-surface-container object-cover bg-surface-container-highest" data-alt="A close up of a minimalist dark gray badge with a geometric purple logo, completely desaturated environment, highly sharp focus on the metallic edge of the badge." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGyANQkcJdCK5SN82I8kT0SUhZON1Q1JeAuAkR-8Z661HVe1b90T0oFXsA_9oIcg0Uehh3T6HdRv3jB7QQkrFHEULx3n1w70hJJwEW2eh4Jl_ZpqaXqDQ_JBT_3Lw1WnPxXzeecxZvxpOWvMyCZzswznBLUqZMBPNJrFaRADB_AhGvI4XdFVfeUMc7P7JkjwowiXsgJyIwe6Kg8eF0eEAOd0Dpm-b8cFWuPa-_ndIGMMF2wVC_uEuslQ"/>
+<img class="w-5 h-5 rounded-full border border-surface-container object-cover bg-surface-container-highest" data-alt="Another minimalist dark gray badge with a tiny green accent dot, matte finish, resting in deep shadows with high contrast lighting emphasizing its circular shape." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJ0BzUH0xYD10P3qQZYOgglpftT9Bw8AKnp087vocdK0SkBrt4pcg-O7UVeUEAx3LuqDEVUzl3iRv5IujEjVsa9nxN56uD3IXapGFNahUvqmItdntsNYFbQUi5ngGN546lfmSXMY0yof9muokncu2C9owWG2GGczGiXp7VdTpXVutu4WVDLhSE_34dS5MorRdK9nD2OOGH4f4v1rMlLfXHMq_VR8y8iISyn8YAi2R8XyiuMTDoCKcEoQ"/>
+</div>
+<span class="text-xs text-on-surface-variant font-mono">Ruangan 1, 2, 4</span>
+</div>
+</div>
+</div>
+<!-- Selesai -->
+<div class="bg-surface-container border border-outline-variant rounded-xl p-6 relative overflow-hidden group hover:border-tertiary/50 transition-colors duration-300 flex flex-col justify-between h-40">
+<div class="absolute -right-6 -top-6 w-24 h-24 bg-tertiary/5 rounded-full opacity-50 group-hover:scale-110 transition-transform duration-500"></div>
+<div class="flex justify-between items-start relative z-10">
+<span class="font-body text-sm font-medium text-tertiary">Selesai</span>
+<span class="material-symbols-outlined text-tertiary">task_alt</span>
+</div>
+<div class="relative z-10">
+<h3 class="font-headline text-4xl font-bold text-on-surface tracking-tighter">18</h3>
+<div class="w-full bg-surface-container-highest h-1 rounded-full mt-3 overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 65%"></div>
+</div>
+<p class="text-[10px] text-on-surface-variant mt-1 text-right">65% dari target harian</p>
+</div>
+</div>
+</div>
+<!-- Next Appointment Highlight (Side Panel) -->
+<div class="col-span-1 lg:col-span-4 bg-primary-container border border-primary/20 rounded-xl p-6 flex flex-col relative overflow-hidden h-full min-h-[160px]">
+<!-- Background accent -->
+<div class="absolute -bottom-10 -right-10 text-primary-fixed-dim/20 pointer-events-none transform -rotate-12">
+<span class="material-symbols-outlined" style="font-size: 140px; font-variation-settings: 'FILL' 1;">vaccines</span>
+</div>
+<div class="relative z-10 flex-1">
+<div class="flex items-center gap-2 mb-4">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<h3 class="font-headline font-bold text-on-primary-container text-sm uppercase tracking-wider">Selanjutnya</h3>
+</div>
+<h4 class="text-2xl font-headline font-bold text-on-primary-container mb-1">Rizky (10y)</h4>
+<p class="text-on-primary-container/80 text-sm mb-4 font-mono">10:30 AM • Smart Clamp</p>
+<div class="flex items-center gap-2 text-xs text-on-primary-container/90 bg-black/20 self-start px-3 py-1.5 rounded backdrop-blur-sm border border-white/10">
+<span class="material-symbols-outlined text-[14px]">stethoscope</span>
+                            Ditugaskan ke dr. Hendra
+                        </div>
+</div>
+</div>
+<!-- Main Schedule View -->
+<div class="col-span-1 lg:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-xl flex flex-col min-h-[400px]">
+<!-- Toolbar -->
+<div class="p-4 border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-headline font-bold text-on-surface text-lg">Jadwal Hari Ini</h3>
+<div class="flex bg-surface-container border border-outline-variant rounded-DEFAULT p-1">
+<button class="px-3 py-1 bg-surface-container-lowest text-primary rounded shadow-sm text-xs font-bold border border-outline-variant">Daftar</button>
+<button class="px-3 py-1 text-on-surface-variant hover:text-on-surface rounded text-xs font-medium transition-colors">Kalender</button>
+</div>
+</div>
+<!-- Table List -->
+<div class="overflow-x-auto flex-1">
+<table class="w-full text-left border-collapse whitespace-nowrap">
+<thead>
+<tr class="text-xs text-on-surface-variant border-b border-outline-variant bg-surface-container/50">
+<th class="py-3 px-6 font-medium">Waktu</th>
+<th class="py-3 px-6 font-medium">Pasien</th>
+<th class="py-3 px-6 font-medium">Metode</th>
+<th class="py-3 px-6 font-medium">Dokter</th>
+<th class="py-3 px-6 font-medium text-right">Status</th>
+</tr>
+</thead>
+<tbody class="text-sm font-body">
+<!-- Row 1: In Progress -->
+<tr class="border-b border-outline-variant/30 hover:bg-surface-container/50 transition-colors group cursor-pointer">
+<td class="py-3.5 px-6 font-mono text-primary font-medium">09:15</td>
+<td class="py-3.5 px-6 font-medium text-on-surface">Ahmad F. (8y)</td>
+<td class="py-3.5 px-6 text-on-surface-variant">Metode Laser</td>
+<td class="py-3.5 px-6 text-on-surface-variant text-xs">Dr. Andi</td>
+<td class="py-3.5 px-6 text-right">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-bold bg-primary/10 text-primary border border-primary/20">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Tindakan
+                                        </span>
+</td>
+</tr>
+<!-- Row 2: Waiting -->
+<tr class="border-b border-outline-variant/30 hover:bg-surface-container/50 transition-colors group cursor-pointer bg-surface-container-highest/20">
+<td class="py-3.5 px-6 font-mono text-on-surface-variant">10:30</td>
+<td class="py-3.5 px-6 font-medium text-on-surface">Rizky (10y)</td>
+<td class="py-3.5 px-6 text-on-surface-variant">Smart Clamp</td>
+<td class="py-3.5 px-6 text-on-surface-variant text-xs">Dr. Hendra</td>
+<td class="py-3.5 px-6 text-right">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-bold bg-surface-container-highest text-on-surface-variant border border-outline-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span> Menunggu
+                                        </span>
+</td>
+</tr>
+<!-- Row 3: Completed -->
+<tr class="border-b border-outline-variant/30 hover:bg-surface-container/50 transition-colors group cursor-pointer opacity-75">
+<td class="py-3.5 px-6 font-mono text-on-surface-variant">08:00</td>
+<td class="py-3.5 px-6 font-medium text-on-surface line-through decoration-on-surface-variant/50">Bima (12y)</td>
+<td class="py-3.5 px-6 text-on-surface-variant">Konvensional</td>
+<td class="py-3.5 px-6 text-on-surface-variant text-xs">Dr. Andi</td>
+<td class="py-3.5 px-6 text-right">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-bold text-tertiary">
+<span class="material-symbols-outlined text-[14px]">check</span> Selesai
+                                        </span>
+</td>
+</tr>
+<!-- Row 4: Waiting -->
+<tr class="hover:bg-surface-container/50 transition-colors group cursor-pointer">
+<td class="py-3.5 px-6 font-mono text-on-surface-variant">11:00</td>
+<td class="py-3.5 px-6 font-medium text-on-surface">Dika (7y)</td>
+<td class="py-3.5 px-6 text-on-surface-variant">Metode Laser</td>
+<td class="py-3.5 px-6 text-on-surface-variant text-xs">Dr. Budi</td>
+<td class="py-3.5 px-6 text-right">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-bold bg-surface-container-highest text-on-surface-variant border border-outline-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span> Menunggu
+                                        </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Recent Medical Records Summary -->
+<div class="col-span-1 lg:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl flex flex-col">
+<div class="p-4 border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-headline font-bold text-on-surface text-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">history</span>
+                            Catatan Terbaru
+                        </h3>
+</div>
+<div class="p-4 flex-1 flex flex-col gap-3">
+<!-- Record Item -->
+<div class="p-3 rounded border border-outline-variant bg-surface-container hover:bg-surface-container-highest transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-1">
+<h4 class="text-sm font-medium text-on-surface group-hover:text-primary transition-colors">REC-20231024-01</h4>
+<span class="text-[10px] font-mono text-on-surface-variant">10m lalu</span>
+</div>
+<p class="text-xs text-on-surface-variant mb-2">Catatan pasca operasi ditambahkan untuk pasien Ahmad F. Penyembuhan berjalan normal.</p>
+<div class="flex items-center gap-1 text-[10px] text-tertiary">
+<span class="material-symbols-outlined text-[12px]">verified</span> Ditandatangani oleh Dr. Andi
+                            </div>
+</div>
+<!-- Record Item -->
+<div class="p-3 rounded border border-outline-variant bg-surface-container hover:bg-surface-container-highest transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-1">
+<h4 class="text-sm font-medium text-on-surface group-hover:text-primary transition-colors">REC-20231024-02</h4>
+<span class="text-[10px] font-mono text-on-surface-variant">1j lalu</span>
+</div>
+<p class="text-xs text-on-surface-variant mb-2">Laporan prosedur selesai untuk Bima. Metode smart clamp berhasil digunakan.</p>
+<div class="flex items-center gap-1 text-[10px] text-tertiary">
+<span class="material-symbols-outlined text-[12px]">verified</span> Ditandatangani oleh Dr. Hendra
+                            </div>
+</div>
+<!-- Empty State / Action -->
+<button class="mt-auto w-full py-2.5 rounded border border-dashed border-outline hover:border-primary hover:text-primary text-on-surface-variant text-sm font-medium transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">search</span>
+                            Cari semua catatan
+                        </button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

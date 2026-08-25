@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Portal CRM Pelanggan &amp; Otomatisasi WhatsApp</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Geist', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .material-symbols-outlined.fill { font-variation-settings: 'FILL' 1; }
+        
+        /* Custom Scrollbar for a sleeker look */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #52525b; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-surface": "#fafafa",
+                        "on-error-container": "#fca5a5",
+                        "error": "#ef4444",
+                        "primary-container": "#7c3aed",
+                        "tertiary-container": "#065f46",
+                        "surface-container-high": "#18181b",
+                        "surface-container": "#121215",
+                        "on-primary-fixed": "#2e1065",
+                        "on-tertiary-container": "#bbf7d0",
+                        "on-primary-fixed-variant": "#5b21b6",
+                        "surface-container-lowest": "#09090b",
+                        "surface-variant": "#18181b",
+                        "surface-container-highest": "#1e1e22",
+                        "on-primary-container": "#ede9fe",
+                        "error-container": "#3b1111",
+                        "on-background": "#fafafa",
+                        "on-tertiary": "#001a12",
+                        "primary": "#a78bfa",
+                        "on-tertiary-fixed-variant": "#047857",
+                        "primary-fixed": "#ede9fe",
+                        "inverse-surface": "#fafafa",
+                        "inverse-primary": "#5b21b6",
+                        "outline": "#52525b",
+                        "surface-tint": "#a78bfa",
+                        "outline-variant": "#27272a",
+                        "on-secondary-fixed-variant": "#3f3f46",
+                        "tertiary-fixed-dim": "#6ee7b7",
+                        "secondary-fixed": "#a1a1aa",
+                        "on-secondary": "#09090b",
+                        "on-surface-variant": "#a1a1aa",
+                        "on-secondary-container": "#a1a1aa",
+                        "surface": "#0c0c0f",
+                        "secondary-fixed-dim": "#71717a",
+                        "background": "#09090b",
+                        "secondary-container": "#27272a",
+                        "on-error": "#1a0000",
+                        "inverse-on-surface": "#09090b",
+                        "tertiary": "#34d399",
+                        "surface-dim": "#0c0c0f",
+                        "on-tertiary-fixed": "#003318",
+                        "primary-fixed-dim": "#c4b5fd",
+                        "surface-container-low": "#0f0f12",
+                        "secondary": "#71717a",
+                        "on-secondary-fixed": "#18181b",
+                        "on-primary": "#0a0012",
+                        "surface-bright": "#18181b",
+                        "tertiary-fixed": "#bbf7d0"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "headline": ["Geist"],
+                        "display": ["Geist"],
+                        "body": ["Geist"],
+                        "label": ["Geist"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background h-screen overflow-hidden flex selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar Component -->
+<nav class="hidden md:flex flex-col bg-surface-container-lowest h-screen w-64 border-r border-outline-variant font-body text-label-sm tracking-normal">
+<!-- Header -->
+<div class="p-6 border-b border-outline-variant flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-container-highest flex items-center justify-center border border-outline-variant overflow-hidden">
+<span class="material-symbols-outlined text-primary" data-icon="health_and_safety">health_and_safety</span>
+</div>
+<div>
+<h1 class="text-xl font-headline font-bold text-on-surface tracking-tighter leading-tight">Khitan Center</h1>
+<p class="text-on-surface-variant text-xs">Perawatan Presisi</p>
+</div>
+</div>
+<!-- Main Navigation -->
+<div class="flex-1 overflow-y-auto py-4 flex flex-col gap-1 px-3">
+<a class="flex items-center gap-3 px-3 py-2 rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 transition-transform group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="calendar_month">calendar_month</span>
+<span>Operasi</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 transition-transform group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="payments">payments</span>
+<span>Kasir</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 transition-transform group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span>Akuntansi</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 transition-transform group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="inventory_2">inventory_2</span>
+<span>Inventaris</span>
+</a>
+<!-- Active Tab: CRM -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-md text-primary border-r-2 border-primary bg-surface-container-high font-bold active:scale-95 transition-transform group" href="#">
+<span class="material-symbols-outlined fill" data-icon="hub">hub</span>
+<span>CRM</span>
+</a>
+</div>
+<!-- Footer Actions -->
+<div class="p-4 border-t border-outline-variant">
+<button class="w-full mb-4 bg-primary text-on-primary py-2 px-4 rounded-md font-medium hover:bg-primary-fixed-dim transition-colors duration-200 flex items-center justify-center gap-2 active:scale-95">
+<span class="material-symbols-outlined text-sm">add</span>
+                Pemesanan Baru
+            </button>
+<div class="flex flex-col gap-1 px-3">
+<a class="flex items-center gap-3 px-3 py-2 rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container hover:bg-surface-container-highest transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="settings">settings</span>
+<span>Pengaturan</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container hover:bg-surface-container-highest transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="help">help</span>
+<span>Bantuan</span>
+</a>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col h-screen overflow-hidden relative">
+<!-- TopAppBar Component -->
+<header class="bg-surface-container flex justify-between items-center px-6 w-full sticky top-0 z-50 h-16 border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<!-- Mobile Menu Trigger (Visible only on mobile) -->
+<button class="md:hidden text-on-surface-variant hover:text-primary transition-colors focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background rounded">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="text-lg font-black text-on-surface font-headline tracking-tight">Obsidian Khitan</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background rounded-full p-1 active:scale-95">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background rounded-full p-1 active:scale-95">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background rounded-full p-1 active:scale-95">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Canvas / Dashboard Content -->
+<main class="flex-1 overflow-y-auto p-4 md:p-8 bg-background">
+<div class="max-w-7xl mx-auto space-y-6">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+<div>
+<h2 class="text-2xl font-bold tracking-tight text-on-surface mb-1">CRM Pelanggan</h2>
+<p class="text-sm text-on-surface-variant">Kelola hubungan klien, referal, dan komunikasi otomatis.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="bg-surface-container-high border border-outline-variant text-on-surface px-4 py-2 rounded flex items-center gap-2 hover:bg-surface-container-highest transition-colors active:scale-95 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background text-sm font-medium">
+<span class="material-symbols-outlined text-sm">download</span>
+                            Ekspor Data
+                        </button>
+<button class="bg-primary text-on-primary px-4 py-2 rounded flex items-center gap-2 hover:bg-primary-fixed-dim transition-colors active:scale-95 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background text-sm font-medium shadow-[0_0_15px_rgba(167,139,250,0.3)]">
+<span class="material-symbols-outlined text-sm">verified</span>
+                            Buat E-Sertifikat
+                        </button>
+</div>
+</div>
+<!-- Metrics Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Metric Card 1 -->
+<div class="bg-surface-container border border-outline-variant rounded-lg p-5 flex flex-col relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-primary">groups</span>
+</div>
+<span class="text-on-surface-variant text-sm font-medium mb-2">Total Pasien (Aktif)</span>
+<div class="text-3xl font-headline font-bold text-on-surface mb-1">1,248</div>
+<div class="flex items-center gap-1 text-xs text-tertiary">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+<span>+12% bulan ini</span>
+</div>
+</div>
+<!-- Metric Card 2 -->
+<div class="bg-surface-container border border-outline-variant rounded-lg p-5 flex flex-col relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-primary">share</span>
+</div>
+<span class="text-on-surface-variant text-sm font-medium mb-2">Konversi Referal</span>
+<div class="text-3xl font-headline font-bold text-on-surface mb-1">342</div>
+<div class="flex items-center gap-1 text-xs text-primary">
+<span>Perujuk Teratas:</span>
+<span class="font-medium text-on-surface">Dr. A. Rahman</span>
+</div>
+</div>
+<!-- Metric Card 3 -->
+<div class="bg-surface-container border border-outline-variant rounded-lg p-5 flex flex-col relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-tertiary">mark_email_read</span>
+</div>
+<span class="text-on-surface-variant text-sm font-medium mb-2">Otomatisasi WhatsApp</span>
+<div class="text-3xl font-headline font-bold text-on-surface mb-1">98.5%</div>
+<div class="flex items-center gap-1 text-xs text-on-surface-variant">
+<span>Tingkat Keberhasilan Pengiriman</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-1.5 mt-3 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-[98.5%]"></div>
+</div>
+</div>
+</div>
+<!-- Main Layout Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Customer Database (Left - takes up 2 cols on lg) -->
+<div class="lg:col-span-2 bg-surface-container border border-outline-variant rounded-lg flex flex-col h-[600px]">
+<div class="p-5 border-b border-outline-variant flex items-center justify-between">
+<h3 class="font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">database</span>
+                                Database Pasien
+                            </h3>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="bg-surface-container-lowest border border-outline-variant rounded-md pl-9 pr-4 py-1.5 text-sm text-on-surface placeholder:text-on-surface-variant/50 focus:border-primary focus:ring-1 focus:ring-primary w-64 transition-all outline-none" placeholder="Cari pasien atau perujuk..." type="text"/>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto p-0">
+<table class="w-full text-left border-collapse">
+<thead class="sticky top-0 bg-surface-container z-10 border-b border-outline-variant text-xs uppercase text-on-surface-variant">
+<tr>
+<th class="px-5 py-3 font-medium">Info Pasien</th>
+<th class="px-5 py-3 font-medium">Status</th>
+<th class="px-5 py-3 font-medium">Dirujuk Oleh</th>
+<th class="px-5 py-3 font-medium text-right">Aksi</th>
+</tr>
+</thead>
+<tbody class="text-sm divide-y divide-outline-variant">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-highest/50 transition-colors group">
+<td class="px-5 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-lowest border border-outline-variant overflow-hidden flex-shrink-0">
+<img alt="Avatar" class="w-full h-full object-cover grayscale opacity-80" data-alt="A portrait of a young boy looking calm, well-lit in a clinical setting. Minimalist dark UI avatar placeholder style, high contrast, sharp focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvwGISTPx_pmy5ddbF1TkHcjPo1M1Wirl7QMltJ11NSHIDWbGTDcV_WXbpjwGrqnQsXspuTVTusi80GuRHzVy_I1dlpMzKns6tb-k6yuH2b4JxcZoNxZsWnvt2OVleGdWClZDu0Y9qU8D25lyuvzvxZNWKoJLIKwRB1L72Clf1RqmjR9fE2FyLcjG2g8Jd66g_Oil1MHkWh1AXgMZQGU6j2LBNVnuiWC-uGbgZtikkRQg4q8mR-0DDBw"/>
+</div>
+<div>
+<div class="font-medium text-on-surface group-hover:text-primary transition-colors">Bima Aditya</div>
+<div class="text-xs text-on-surface-variant">ID: PT-2023-0891 • Usia: 8</div>
+</div>
+</div>
+</td>
+<td class="px-5 py-4">
+<span class="inline-flex items-center gap-1.5 py-1 px-2.5 rounded-full text-xs font-medium bg-tertiary-container/20 text-tertiary border border-tertiary-container/30">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                                                Pemulihan Pasca-Operasi
+                                            </span>
+</td>
+<td class="px-5 py-4">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">link</span>
+                                                Pencarian Organik
+                                            </div>
+</td>
+<td class="px-5 py-4 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors p-1 rounded-md hover:bg-surface-container-lowest">
+<span class="material-symbols-outlined text-sm">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-highest/50 transition-colors group">
+<td class="px-5 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-lowest border border-outline-variant flex items-center justify-center text-xs font-bold text-on-surface flex-shrink-0">
+                                                    RF
+                                                </div>
+<div>
+<div class="font-medium text-on-surface group-hover:text-primary transition-colors">Rizky Fauzi</div>
+<div class="text-xs text-on-surface-variant">ID: PT-2023-0892 • Usia: 10</div>
+</div>
+</div>
+</td>
+<td class="px-5 py-4">
+<span class="inline-flex items-center gap-1.5 py-1 px-2.5 rounded-full text-xs font-medium bg-surface-container-lowest text-on-surface-variant border border-outline-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-on-surface-variant"></span>
+                                                Selesai
+                                            </span>
+</td>
+<td class="px-5 py-4">
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[14px]">stars</span>
+                                                Keluarga Bima (Ref)
+                                            </div>
+</td>
+<td class="px-5 py-4 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors p-1 rounded-md hover:bg-surface-container-lowest">
+<span class="material-symbols-outlined text-sm">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-highest/50 transition-colors group">
+<td class="px-5 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-lowest border border-outline-variant flex items-center justify-center text-xs font-bold text-on-surface flex-shrink-0">
+                                                    AN
+                                                </div>
+<div>
+<div class="font-medium text-on-surface group-hover:text-primary transition-colors">Arif Nugroho</div>
+<div class="text-xs text-on-surface-variant">ID: PT-2023-0893 • Usia: 7</div>
+</div>
+</div>
+</td>
+<td class="px-5 py-4">
+<span class="inline-flex items-center gap-1.5 py-1 px-2.5 rounded-full text-xs font-medium bg-primary-container/20 text-primary border border-primary-container/30">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                                                Dijadwalkan (Besok)
+                                            </span>
+</td>
+<td class="px-5 py-4">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">link</span>
+                                                Iklan Instagram
+                                            </div>
+</td>
+<td class="px-5 py-4 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors p-1 rounded-md hover:bg-surface-container-lowest">
+<span class="material-symbols-outlined text-sm">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-3 border-t border-outline-variant flex items-center justify-center gap-2 text-xs text-on-surface-variant bg-surface-container-lowest/50 rounded-b-lg">
+<button class="hover:text-primary disabled:opacity-50"><span class="material-symbols-outlined text-sm">chevron_left</span></button>
+<span>Halaman 1 dari 42</span>
+<button class="hover:text-primary"><span class="material-symbols-outlined text-sm">chevron_right</span></button>
+</div>
+</div>
+<!-- WhatsApp Automation Status (Right - 1 col) -->
+<div class="bg-surface-container border border-outline-variant rounded-lg flex flex-col h-[600px]">
+<div class="p-5 border-b border-outline-variant flex items-center justify-between">
+<h3 class="font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-sm">forum</span>
+                                Otomatisasi WA
+                            </h3>
+<button class="text-primary hover:text-on-primary-container text-xs font-medium transition-colors">Kelola Hooks</button>
+</div>
+<div class="flex-1 overflow-y-auto p-5 relative">
+<!-- Timeline Line -->
+<div class="absolute left-7 top-5 bottom-5 w-px bg-outline-variant"></div>
+<div class="space-y-6 relative">
+<!-- Log Item 1 -->
+<div class="flex gap-4 relative">
+<div class="w-5 h-5 rounded-full bg-surface-container border-2 border-tertiary flex items-center justify-center flex-shrink-0 z-10 mt-0.5">
+<span class="material-symbols-outlined text-[10px] text-tertiary font-bold">check</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<div class="text-sm font-medium text-on-surface">Pengingat Pra-Operasi Terkirim</div>
+<div class="text-xs text-on-surface-variant">10 mnt lalu</div>
+</div>
+<div class="text-xs text-on-surface-variant bg-surface-container-lowest p-2 rounded border border-outline-variant mt-2 font-mono">
+                                            Ke: +62 812-3456-XXXX (Arif N.)<br/>
+                                            Templat: H-1_Prep_Guide
+                                        </div>
+</div>
+</div>
+<!-- Log Item 2 -->
+<div class="flex gap-4 relative">
+<div class="w-5 h-5 rounded-full bg-surface-container border-2 border-tertiary flex items-center justify-center flex-shrink-0 z-10 mt-0.5">
+<span class="material-symbols-outlined text-[10px] text-tertiary font-bold">check</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<div class="text-sm font-medium text-on-surface">E-Sertifikat Terkirim</div>
+<div class="text-xs text-on-surface-variant">1 jam lalu</div>
+</div>
+<div class="text-xs text-on-surface-variant bg-surface-container-lowest p-2 rounded border border-outline-variant mt-2 font-mono">
+                                            Ke: +62 813-9876-XXXX (Rizky F.)<br/>
+                                            Aset: cert_892.pdf terlampir.
+                                        </div>
+</div>
+</div>
+<!-- Log Item 3 (Pending) -->
+<div class="flex gap-4 relative">
+<div class="w-5 h-5 rounded-full bg-surface-container border-2 border-primary border-dashed flex items-center justify-center flex-shrink-0 z-10 mt-0.5 animate-spin-slow">
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+</div>
+<div class="flex-1 opacity-70">
+<div class="flex justify-between items-start mb-1">
+<div class="text-sm font-medium text-on-surface">Pemeriksaan Pasca-Operasi (H+3)</div>
+<div class="text-xs text-primary font-medium">Dijadwalkan 14:00</div>
+</div>
+<div class="text-xs text-on-surface-variant bg-surface-container-lowest p-2 rounded border border-outline-variant border-dashed mt-2 font-mono">
+                                            Target: Bima Aditya<br/>
+                                            Templat: Recovery_Check_H3
+                                        </div>
+</div>
+</div>
+<!-- Log Item 4 (Error) -->
+<div class="flex gap-4 relative">
+<div class="w-5 h-5 rounded-full bg-surface-container border-2 border-error flex items-center justify-center flex-shrink-0 z-10 mt-0.5">
+<span class="material-symbols-outlined text-[10px] text-error font-bold">close</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<div class="text-sm font-medium text-error">Pengiriman Gagal</div>
+<div class="text-xs text-on-surface-variant">Kemarin</div>
+</div>
+<div class="text-xs text-on-error-container bg-error-container/20 p-2 rounded border border-error-container mt-2 font-mono">
+                                            Alasan: Format Nomor WhatsApp tidak valid.<br/>
+                                            Tindakan diperlukan di CRM.
+                                        </div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 border-t border-outline-variant bg-surface-container-lowest/50 rounded-b-lg">
+<div class="flex items-center justify-between text-xs">
+<span class="text-on-surface-variant flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-tertiary"></span> Server Terhubung</span>
+<span class="text-on-surface-variant">Ping terakhir: 2d yang lalu</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom spacing for mobile -->
+<div class="h-8 md:h-0"></div>
+</main>
+</div>
+</body></html>

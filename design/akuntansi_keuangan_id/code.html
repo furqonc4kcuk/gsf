@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Financial &amp; Accounting Dashboard - Obsidian Khitan</title>
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-surface": "#fafafa",
+                        "on-error-container": "#fca5a5",
+                        "error": "#ef4444",
+                        "primary-container": "#7c3aed",
+                        "tertiary-container": "#065f46",
+                        "surface-container-high": "#18181b",
+                        "surface-container": "#121215",
+                        "on-primary-fixed": "#2e1065",
+                        "on-tertiary-container": "#bbf7d0",
+                        "on-primary-fixed-variant": "#5b21b6",
+                        "surface-container-lowest": "#09090b",
+                        "surface-variant": "#18181b",
+                        "surface-container-highest": "#1e1e22",
+                        "on-primary-container": "#ede9fe",
+                        "error-container": "#3b1111",
+                        "on-background": "#fafafa",
+                        "on-tertiary": "#001a12",
+                        "primary": "#a78bfa",
+                        "on-tertiary-fixed-variant": "#047857",
+                        "primary-fixed": "#ede9fe",
+                        "inverse-surface": "#fafafa",
+                        "inverse-primary": "#5b21b6",
+                        "outline": "#52525b",
+                        "surface-tint": "#a78bfa",
+                        "outline-variant": "#27272a",
+                        "on-secondary-fixed-variant": "#3f3f46",
+                        "tertiary-fixed-dim": "#6ee7b7",
+                        "secondary-fixed": "#a1a1aa",
+                        "on-secondary": "#09090b",
+                        "on-surface-variant": "#a1a1aa",
+                        "on-secondary-container": "#a1a1aa",
+                        "surface": "#0c0c0f",
+                        "secondary-fixed-dim": "#71717a",
+                        "background": "#09090b",
+                        "secondary-container": "#27272a",
+                        "on-error": "#1a0000",
+                        "inverse-on-surface": "#09090b",
+                        "tertiary": "#34d399",
+                        "surface-dim": "#0c0c0f",
+                        "on-tertiary-fixed": "#003318",
+                        "primary-fixed-dim": "#c4b5fd",
+                        "surface-container-low": "#0f0f12",
+                        "secondary": "#71717a",
+                        "on-secondary-fixed": "#18181b",
+                        "on-primary": "#0a0012",
+                        "surface-bright": "#18181b",
+                        "tertiary-fixed": "#bbf7d0"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "headline": ["Geist", "sans-serif"],
+                        "display": ["Geist", "sans-serif"],
+                        "body": ["Geist", "sans-serif"],
+                        "label": ["Geist", "sans-serif"]
+                    },
+                    letterSpacing: {
+                        tight: '-0.02em',
+                        tighter: '-0.04em',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-surface');
+            font-family: theme('fontFamily.body');
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.outline-variant');
+            border-radius: theme('borderRadius.full');
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: theme('colors.outline');
+        }
+    </style>
+</head>
+<body class="flex h-screen overflow-hidden antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar (Shared Component) -->
+<aside class="hidden md:flex bg-surface-container-lowest h-screen w-64 border-r border-outline-variant flex-col overflow-y-auto shrink-0 z-40">
+<!-- Header -->
+<div class="p-6 border-b border-outline-variant">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center border border-outline-variant shrink-0">
+<img alt="Clinic Administrator" class="w-full h-full object-cover rounded-lg" data-alt="A macro photograph of an abstract medical emblem, minimal and precise, cast in high-contrast dark metallic tones with a glowing violet edge. The mood is clinical, modern, and serious. (Obsidian design style)." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBq6egV0SKSkPz4QRg_Dn2biwKNrOa6iNQRgG6FShqyundU4fA5ERWZXS7uDmHGm-04Gk5RWqh_TNhmzRKSi1poBAABe3NPE4vgQIoIJoOm8zSXdHPWNCg-g1dYv_ALMaKOmhVu1SO40aUaYPyvFJBnNaNqhOfSrkpAWFtFknveXYdhBoLyQ3WtOm8Ssl8lHo5Mf9zuJp7ItLrbGCumo82-i7td0_XuzrWY1cyyrdu_Kwx-BiNqmD1msA"/>
+</div>
+<div class="overflow-hidden">
+<h1 class="text-xl font-headline font-bold text-on-surface tracking-tighter truncate">Khitan Center</h1>
+<p class="font-body text-label-sm tracking-normal text-on-surface-variant truncate">Precision Care</p>
+</div>
+</div>
+<button class="mt-6 w-full bg-primary hover:bg-primary-fixed-dim text-on-primary font-bold py-2.5 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">add</span>
+                Pemesanan Baru
+            </button>
+</div>
+<!-- Main Navigation -->
+<nav class="flex-1 py-4 flex flex-col gap-1 px-3">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="calendar_month">calendar_month</span>
+<span class="font-body text-sm font-medium">Operasional</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="payments">payments</span>
+<span class="font-body text-sm font-medium">Kasir</span>
+</a>
+<!-- Active Tab: Accounting -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-primary border-r-2 border-primary bg-surface-container-high font-bold transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-body text-sm">Akuntansi</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="inventory_2">inventory_2</span>
+<span class="font-body text-sm font-medium">Inventaris</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="hub">hub</span>
+<span class="font-body text-sm font-medium">CRM</span>
+</a>
+</nav>
+<!-- Footer Navigation -->
+<div class="p-3 border-t border-outline-variant flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="settings">settings</span>
+<span class="font-body text-sm font-medium">Pengaturan</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="help">help</span>
+<span class="font-body text-sm font-medium">Bantuan</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col h-screen overflow-hidden relative bg-background">
+<!-- TopAppBar (Shared Component) -->
+<header class="bg-surface-container docked full-width top-0 h-16 border-b border-outline-variant flex justify-between items-center px-6 w-full sticky z-50 shrink-0">
+<!-- Left: Search or Mobile Menu Toggle -->
+<div class="flex items-center gap-4 flex-1">
+<button class="md:hidden text-on-surface-variant hover:text-primary transition-colors p-1 rounded-md focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface-container">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="hidden md:flex relative w-64 max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-md py-1.5 pl-9 pr-3 text-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="Cari transaksi, kode..." type="text"/>
+</div>
+</div>
+<!-- Center: Brand (Mobile Only) -->
+<div class="md:hidden absolute left-1/2 -translate-x-1/2">
+<span class="text-lg font-black text-on-surface font-headline tracking-tight">Obsidian Khitan</span>
+</div>
+<!-- Right: Actions -->
+<div class="flex items-center gap-2 shrink-0">
+<button class="p-2 rounded-md text-on-surface-variant hover:text-primary transition-colors focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface-container relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full border border-surface-container"></span>
+</button>
+<button class="p-2 rounded-md text-on-surface-variant hover:text-primary transition-colors focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface-container">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+<button class="p-2 rounded-md text-on-surface-variant hover:text-primary transition-colors focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface-container border border-outline-variant bg-surface-container-high ml-2">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Scrollable Canvas -->
+<div class="flex-1 overflow-y-auto p-4 md:p-8 relative z-0">
+<!-- Decorative atmospheric gradient -->
+<div class="absolute top-0 right-0 w-1/2 h-96 bg-primary opacity-[0.03] blur-[120px] pointer-events-none rounded-full"></div>
+<div class="max-w-7xl mx-auto space-y-6">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+<div>
+<h2 class="text-3xl font-headline font-bold tracking-tight text-on-surface">Ikhtisar Keuangan</h2>
+<p class="text-sm text-on-surface-variant mt-1">Laba/Rugi waktu nyata, bagi hasil, dan metrik operasional.</p>
+</div>
+<div class="flex items-center gap-2">
+<select class="bg-surface-container text-sm border border-outline-variant rounded-md px-3 py-1.5 focus:ring-2 focus:ring-primary focus:outline-none">
+<option>Bulan Ini</option>
+<option>Bulan Lalu</option>
+<option>Q3 2023</option>
+<option>YTD</option>
+</select>
+<button class="bg-surface-container hover:bg-surface-container-highest text-on-surface text-sm border border-outline-variant rounded-md px-4 py-1.5 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">download</span>
+                            Ekspor
+                        </button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Main P&L Chart Card (Spans 2 cols) -->
+<div class="md:col-span-2 bg-surface-container border border-outline-variant rounded-xl p-5 flex flex-col relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+<div class="flex justify-between items-start mb-6 z-10">
+<div>
+<h3 class="text-base font-medium text-on-surface font-headline">Laba/Rugi Bersih</h3>
+<div class="text-3xl font-bold font-headline tracking-tighter mt-1 text-on-surface">Rp 142.5M</div>
+<div class="flex items-center gap-1 mt-1 text-tertiary text-xs font-medium">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+<span>+12.4% vs bulan lalu</span>
+</div>
+</div>
+<div class="flex gap-1 bg-surface-container-lowest border border-outline-variant rounded-md p-1">
+<button class="px-2 py-1 text-xs font-medium rounded bg-surface-container text-on-surface border border-outline-variant shadow-sm">Pendapatan</button>
+<button class="px-2 py-1 text-xs font-medium rounded text-on-surface-variant hover:text-on-surface transition-colors">Pengeluaran</button>
+</div>
+</div>
+<!-- Abstract Chart Representation (Bar chart styling) -->
+<div class="flex-1 flex items-end gap-2 h-48 mt-auto z-10 pt-4">
+<!-- Bars -->
+<div class="w-full flex justify-between items-end h-full group-hover:opacity-100 opacity-90 transition-opacity">
+<div class="w-[8%] bg-surface-container-highest border border-outline-variant rounded-t-sm h-[40%] relative hover:bg-primary/20 hover:border-primary/50 transition-colors cursor-pointer group/bar"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-on-surface-variant opacity-0 group-hover/bar:opacity-100 transition-opacity">Rp24M</div></div>
+<div class="w-[8%] bg-surface-container-highest border border-outline-variant rounded-t-sm h-[35%] relative hover:bg-primary/20 hover:border-primary/50 transition-colors cursor-pointer group/bar"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-on-surface-variant opacity-0 group-hover/bar:opacity-100 transition-opacity">Rp21M</div></div>
+<div class="w-[8%] bg-surface-container-highest border border-outline-variant rounded-t-sm h-[55%] relative hover:bg-primary/20 hover:border-primary/50 transition-colors cursor-pointer group/bar"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-on-surface-variant opacity-0 group-hover/bar:opacity-100 transition-opacity">Rp32M</div></div>
+<div class="w-[8%] bg-surface-container-highest border border-outline-variant rounded-t-sm h-[50%] relative hover:bg-primary/20 hover:border-primary/50 transition-colors cursor-pointer group/bar"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-on-surface-variant opacity-0 group-hover/bar:opacity-100 transition-opacity">Rp28M</div></div>
+<div class="w-[8%] bg-surface-container-highest border border-outline-variant rounded-t-sm h-[70%] relative hover:bg-primary/20 hover:border-primary/50 transition-colors cursor-pointer group/bar"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-on-surface-variant opacity-0 group-hover/bar:opacity-100 transition-opacity">Rp45M</div></div>
+<div class="w-[8%] bg-surface-container-highest border border-outline-variant rounded-t-sm h-[65%] relative hover:bg-primary/20 hover:border-primary/50 transition-colors cursor-pointer group/bar"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-on-surface-variant opacity-0 group-hover/bar:opacity-100 transition-opacity">Rp41M</div></div>
+<div class="w-[8%] bg-primary bg-opacity-80 border border-primary/50 rounded-t-sm h-[85%] relative hover:bg-opacity-100 transition-colors shadow-[0_0_15px_rgba(167,139,250,0.1)] cursor-pointer group/bar"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-primary font-bold opacity-0 group-hover/bar:opacity-100 transition-opacity">Rp58M</div></div>
+</div>
+</div>
+<div class="flex justify-between mt-3 text-[10px] text-on-surface-variant font-mono uppercase tracking-wider">
+<span>Sen</span><span>Sel</span><span>Rab</span><span>Kam</span><span>Jum</span><span>Sab</span><span>Min</span>
+</div>
+</div>
+<!-- Top Packages Donut (1 col) -->
+<div class="bg-surface-container border border-outline-variant rounded-xl p-5 flex flex-col">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-base font-medium text-on-surface font-headline">Paket Terlaris</h3>
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-sm">more_horiz</span></button>
+</div>
+<div class="flex-1 flex flex-col justify-center items-center relative py-4">
+<!-- CSS-based ring chart abstraction -->
+<div class="w-32 h-32 rounded-full border-[12px] border-surface-container-highest relative flex items-center justify-center">
+<!-- Simulated SVG segments -->
+<svg class="absolute inset-0 w-full h-full -rotate-90" viewbox="0 0 100 100">
+<circle class="drop-shadow-[0_0_8px_rgba(167,139,250,0.4)]" cx="50" cy="50" fill="transparent" r="40" stroke="theme('colors.primary')" stroke-dasharray="100 151" stroke-width="12"></circle>
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="theme('colors.tertiary')" stroke-dasharray="60 191" stroke-dashoffset="-105" stroke-width="12"></circle>
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="theme('colors.secondary-fixed')" stroke-dasharray="30 221" stroke-dashoffset="-170" stroke-width="12"></circle>
+</svg>
+<div class="text-center">
+<div class="text-xs text-on-surface-variant">Total</div>
+<div class="text-lg font-bold text-on-surface font-headline">342</div>
+</div>
+</div>
+</div>
+<div class="space-y-3 mt-2">
+<div class="flex items-center justify-between text-sm">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary shadow-[0_0_5px_rgba(167,139,250,0.5)]"></div>
+<span class="text-on-surface">Metode Laser</span>
+</div>
+<span class="font-mono text-on-surface-variant">45%</span>
+</div>
+<div class="flex items-center justify-between text-sm">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(52,211,153,0.3)]"></div>
+<span class="text-on-surface">Smart Clamp</span>
+</div>
+<span class="font-mono text-on-surface-variant">32%</span>
+</div>
+<div class="flex items-center justify-between text-sm">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-secondary-fixed"></div>
+<span class="text-on-surface">Konvensional</span>
+</div>
+<span class="font-mono text-on-surface-variant">23%</span>
+</div>
+</div>
+</div>
+<!-- Fee Sharing Breakdown (Spans 2 cols) -->
+<div class="md:col-span-2 bg-surface-container border border-outline-variant rounded-xl p-0 overflow-hidden flex flex-col">
+<div class="p-5 border-b border-outline-variant bg-surface-container-low flex justify-between items-center">
+<div>
+<h3 class="text-base font-medium text-on-surface font-headline">Ringkasan Bagi Hasil</h3>
+<p class="text-xs text-on-surface-variant mt-0.5">Alokasi terakumulasi untuk staf medis &amp; transportasi.</p>
+</div>
+<button class="text-primary text-sm font-medium hover:text-primary-fixed-dim transition-colors flex items-center gap-1">
+                                Selesaikan Pembayaran
+                                <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left text-sm whitespace-nowrap">
+<thead class="bg-surface-container-highest border-b border-outline-variant text-xs text-on-surface-variant uppercase tracking-wider font-mono">
+<tr>
+<th class="px-5 py-3 font-medium">Peran</th>
+<th class="px-5 py-3 font-medium">Jumlah Anggota</th>
+<th class="px-5 py-3 font-medium">Prosedur</th>
+<th class="px-5 py-3 font-medium">Total Bagian</th>
+<th class="px-5 py-3 font-medium text-right">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/50">
+<tr class="hover:bg-surface-container-highest transition-colors group">
+<td class="px-5 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">stethoscope</span>
+</div>
+<span class="font-medium text-on-surface">Dokter Operator</span>
+</div>
+</td>
+<td class="px-5 py-4 text-on-surface-variant">4 Aktif</td>
+<td class="px-5 py-4 text-on-surface-variant">342</td>
+<td class="px-5 py-4 font-mono font-medium text-on-surface">Rp 85.5M</td>
+<td class="px-5 py-4 text-right">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full text-[10px] font-medium bg-tertiary/10 text-tertiary border border-tertiary/20">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Tertunda
+                                            </span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-highest transition-colors group">
+<td class="px-5 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-highest border border-outline-variant flex items-center justify-center text-on-surface-variant group-hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-[18px]">medical_services</span>
+</div>
+<span class="font-medium text-on-surface">Asisten Perawat</span>
+</div>
+</td>
+<td class="px-5 py-4 text-on-surface-variant">8 Aktif</td>
+<td class="px-5 py-4 text-on-surface-variant">342</td>
+<td class="px-5 py-4 font-mono font-medium text-on-surface">Rp 34.2M</td>
+<td class="px-5 py-4 text-right">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full text-[10px] font-medium bg-tertiary/10 text-tertiary border border-tertiary/20">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Tertunda
+                                            </span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-highest transition-colors group">
+<td class="px-5 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-highest border border-outline-variant flex items-center justify-center text-on-surface-variant group-hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-[18px]">local_taxi</span>
+</div>
+<span class="font-medium text-on-surface">Driver Home-Care</span>
+</div>
+</td>
+<td class="px-5 py-4 text-on-surface-variant">3 Aktif</td>
+<td class="px-5 py-4 text-on-surface-variant">128 Perjalanan</td>
+<td class="px-5 py-4 font-mono font-medium text-on-surface">Rp 12.8M</td>
+<td class="px-5 py-4 text-right">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full text-[10px] font-medium bg-surface-container-highest text-on-surface-variant border border-outline-variant">
+                                                Selesai
+                                            </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- BMHP Operational Costs (1 col) -->
+<div class="bg-surface-container border border-outline-variant rounded-xl p-0 flex flex-col relative overflow-hidden">
+<!-- Abstract texture background -->
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: repeating-linear-gradient(45deg, theme('colors.outline-variant') 0, theme('colors.outline-variant') 1px, transparent 1px, transparent 10px);"></div>
+<div class="p-5 border-b border-outline-variant relative z-10">
+<h3 class="text-base font-medium text-on-surface font-headline">Pelacakan BMHP</h3>
+<p class="text-xs text-on-surface-variant mt-1">Perlengkapan medis &amp; biaya operasional.</p>
+</div>
+<div class="p-5 flex-1 flex flex-col gap-5 relative z-10 bg-surface-container-lowest/50">
+<!-- Progress item 1 -->
+<div>
+<div class="flex justify-between text-sm mb-1.5">
+<span class="text-on-surface font-medium">Barang Habis Pakai (Kit)</span>
+<span class="font-mono text-error">Rp 18.2M</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-error rounded-full w-[85%] relative">
+<div class="absolute inset-0 bg-white/20 w-full animate-[pulse_2s_ease-in-out_infinite]"></div>
+</div>
+</div>
+<div class="text-[10px] text-on-surface-variant mt-1 text-right">85% dari anggaran bulanan</div>
+</div>
+<!-- Progress item 2 -->
+<div>
+<div class="flex justify-between text-sm mb-1.5">
+<span class="text-on-surface font-medium">Sterilisasi</span>
+<span class="font-mono text-on-surface">Rp 4.5M</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full w-[45%]"></div>
+</div>
+<div class="text-[10px] text-on-surface-variant mt-1 text-right">45% dari anggaran bulanan</div>
+</div>
+<!-- Progress item 3 -->
+<div>
+<div class="flex justify-between text-sm mb-1.5">
+<span class="text-on-surface font-medium">Anestesi</span>
+<span class="font-mono text-tertiary">Rp 3.1M</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-tertiary rounded-full w-[30%]"></div>
+</div>
+<div class="text-[10px] text-on-surface-variant mt-1 text-right">30% dari anggaran bulanan</div>
+</div>
+<button class="mt-auto w-full py-2 text-xs font-medium text-on-surface-variant hover:text-on-surface border border-outline-variant hover:border-outline rounded-md transition-colors bg-surface-container">
+                                Lihat Biaya Inventaris Lengkap
+                            </button>
+</div>
+</div>
+</div>
+<!-- Bottom spacing -->
+<div class="h-12"></div>
+</div>
+</div>
+</main>
+</body></html>
