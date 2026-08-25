@@ -286,7 +286,7 @@ function ReceiptModal({ onClose }: { onClose: () => void }) {
           <div className="space-y-2 py-2">
             <div className="flex justify-between">
               <span>1x Khitan Laser. (Anak)</span>
-              <span>1.800.000</span>
+              <span>1.400.000</span>
             </div>
             <div className="flex justify-between">
               <span>1x Paket Medis A</span>
@@ -296,7 +296,7 @@ function ReceiptModal({ onClose }: { onClose: () => void }) {
           <div className="border-t border-outline-variant border-dashed pt-4 space-y-1">
             <div className="flex justify-between text-on-surface-variant">
               <span>Subtotal</span>
-              <span>2.050.000</span>
+              <span>1.650.000</span>
             </div>
             <div className="flex justify-between text-on-surface-variant">
               <span>Pajak (11%)</span>
@@ -304,7 +304,7 @@ function ReceiptModal({ onClose }: { onClose: () => void }) {
             </div>
             <div className="flex justify-between font-bold text-lg pt-2">
               <span>TOTAL</span>
-              <span>2.275.500</span>
+              <span>1.875.500</span>
             </div>
           </div>
           <div className="text-center pt-4 border-t border-outline-variant border-dashed text-tertiary flex flex-col items-center gap-1">

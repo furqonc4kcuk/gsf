@@ -19,7 +19,7 @@ function SideNavBar() {
           />
         </div>
         <div>
-          <h1 className="text-xl font-headline font-bold text-on-surface tracking-tighter">Khitan Center</h1>
+          <h1 className="text-xl font-headline font-bold text-on-surface tracking-tighter">GSF Admin</h1>
           <p className="font-body text-sm tracking-normal text-on-surface-variant">Perawatan Presisi</p>
         </div>
       </div>
