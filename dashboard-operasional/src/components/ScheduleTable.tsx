@@ -60,7 +60,7 @@ function ScheduleTable() {
               <th className="py-3 px-6 font-medium">Waktu</th>
               <th className="py-3 px-6 font-medium">Pasien</th>
               <th className="py-3 px-6 font-medium">Metode</th>
-              <th className="py-3 px-6 font-medium">Dokter</th>
+              <th className="py-3 px-6 font-medium">Perawat</th>
               <th className="py-3 px-6 font-medium text-right">Status</th>
             </tr>
           </thead>
