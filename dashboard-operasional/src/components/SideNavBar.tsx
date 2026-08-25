@@ -1,4 +1,13 @@
+import { NavLink } from 'react-router-dom'
+
 function SideNavBar() {
+  const linkBase =
+    'flex items-center gap-3 px-3 py-2.5 rounded-default font-body text-sm tracking-normal transition-colors duration-200 active:scale-95'
+  const inactive =
+    'text-on-surface-variant hover:text-on-surface hover:bg-surface-container hover:bg-surface-container-highest'
+  const active =
+    'text-primary border-r-2 border-primary bg-surface-container-high font-bold'
+
   return (
     <nav className="bg-surface-container-lowest h-screen w-64 border-r border-outline-variant flex flex-col h-full overflow-y-auto hidden md:flex shrink-0">
       <div className="p-6 flex items-center gap-4">
@@ -26,51 +35,38 @@ function SideNavBar() {
 
       <ul className="flex-1 py-4 flex flex-col gap-1 px-3">
         <li>
-          <a
-            className="flex items-center gap-3 px-3 py-2.5 rounded-default text-primary border-r-2 border-primary bg-surface-container-high font-bold font-body text-sm tracking-normal transition-colors duration-200"
-            href="#"
-          >
+          <NavLink to="/" className={({ isActive }) => `${linkBase} ${isActive ? active : inactive}`} end>
             <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>
               calendar_month
             </span>
             Operasional
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a
-            className="flex items-center gap-3 px-3 py-2.5 rounded-default text-on-surface-variant hover:text-on-surface hover:bg-surface-container hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 transition-transform font-body text-sm tracking-normal"
-            href="#"
-          >
+          <NavLink to="/kasir" className={({ isActive }) => `${linkBase} ${isActive ? active : inactive}`}>
             <span className="material-symbols-outlined">payments</span>
             Kasir
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a
-            className="flex items-center gap-3 px-3 py-2.5 rounded-default text-on-surface-variant hover:text-on-surface hover:bg-surface-container hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 transition-transform font-body text-sm tracking-normal"
-            href="#"
-          >
-            <span className="material-symbols-outlined">account_balance_wallet</span>
+          <NavLink to="/akuntansi" className={({ isActive }) => `${linkBase} ${isActive ? active : inactive}`}>
+            <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>
+              account_balance_wallet
+            </span>
             Akuntansi
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a
-            className="flex items-center gap-3 px-3 py-2.5 rounded-default text-on-surface-variant hover:text-on-surface hover:bg-surface-container hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 transition-transform font-body text-sm tracking-normal"
-            href="#"
-          >
+          <NavLink to="/inventaris" className={({ isActive }) => `${linkBase} ${isActive ? active : inactive}`}>
             <span className="material-symbols-outlined">inventory_2</span>
             Inventaris
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a
-            className="flex items-center gap-3 px-3 py-2.5 rounded-default text-on-surface-variant hover:text-on-surface hover:bg-surface-container hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 transition-transform font-body text-sm tracking-normal"
-            href="#"
-          >
+          <NavLink to="/crm" className={({ isActive }) => `${linkBase} ${isActive ? active : inactive}`}>
             <span className="material-symbols-outlined">hub</span>
             Pelanggan
-          </a>
+          </NavLink>
         </li>
       </ul>
 
@@ -78,7 +74,7 @@ function SideNavBar() {
         <ul className="flex flex-col gap-1">
           <li>
             <a
-              className="flex items-center gap-3 px-3 py-2 rounded-default text-on-surface-variant hover:text-on-surface hover:bg-surface-container hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 transition-transform font-body text-sm tracking-normal"
+              className={`${linkBase} ${inactive}`}
               href="#"
             >
               <span className="material-symbols-outlined">settings</span>
@@ -87,7 +83,7 @@ function SideNavBar() {
           </li>
           <li>
             <a
-              className="flex items-center gap-3 px-3 py-2 rounded-default text-on-surface-variant hover:text-on-surface hover:bg-surface-container hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 transition-transform font-body text-sm tracking-normal"
+              className={`${linkBase} ${inactive}`}
               href="#"
             >
               <span className="material-symbols-outlined">help</span>
