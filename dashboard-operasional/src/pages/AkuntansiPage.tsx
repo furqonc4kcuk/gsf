@@ -48,7 +48,7 @@ function PLChartCard() {
       <div className="flex justify-between items-start mb-6 z-10">
         <div>
           <h3 className="text-base font-medium text-on-surface font-headline">Laba/Rugi Bersih</h3>
-          <div className="text-3xl font-bold font-headline tracking-tighter mt-1 text-on-surface">Rp 142.5M</div>
+          <div className="text-3xl font-bold font-headline tracking-tighter mt-1 text-on-surface">Rp 12.5M</div>
           <div className="flex items-center gap-1 mt-1 text-tertiary text-xs font-medium">
             <span className="material-symbols-outlined text-[14px]">trending_up</span>
             <span>+12.4% vs bulan lalu</span>
@@ -178,9 +178,9 @@ function FeeSharingCard() {
           </thead>
           <tbody className="divide-y divide-outline-variant/50">
             {[
-              { role: 'Dokter Operator', icon: 'stethoscope', count: '4 Aktif', proc: '342', total: 'Rp 85.5M', status: 'Tertunda' },
-              { role: 'Asisten Perawat', icon: 'medical_services', count: '8 Aktif', proc: '342', total: 'Rp 34.2M', status: 'Tertunda' },
-              { role: 'Driver Home-Care', icon: 'local_taxi', count: '3 Aktif', proc: '128 Perjalanan', total: 'Rp 12.8M', status: 'Selesai' },
+              { role: 'Dokter Operator', icon: 'stethoscope', count: '4 Aktif', proc: '342', total: 'Rp 5.5M', status: 'Tertunda' },
+              { role: 'Asisten Perawat', icon: 'medical_services', count: '8 Aktif', proc: '342', total: 'Rp 4.2M', status: 'Tertunda' },
+              { role: 'Driver Home-Care', icon: 'local_taxi', count: '3 Aktif', proc: '128 Perjalanan', total: 'Rp 2.8M', status: 'Selesai' },
             ].map((row) => (
               <tr key={row.role} className="hover:bg-surface-container-highest transition-colors group">
                 <td className="px-5 py-4">
@@ -211,7 +211,7 @@ function FeeSharingCard() {
 
 function BMHPCard() {
   const items = [
-    { name: 'Barang Habis Pakai (Kit)', value: 'Rp 18.2M', pct: 85, color: 'bg-error' },
+    { name: 'Barang Habis Pakai (Kit)', value: 'Rp 6.2M', pct: 85, color: 'bg-error' },
     { name: 'Sterilisasi', value: 'Rp 4.5M', pct: 45, color: 'bg-primary' },
     { name: 'Anestesi', value: 'Rp 3.1M', pct: 30, color: 'bg-tertiary' },
   ]

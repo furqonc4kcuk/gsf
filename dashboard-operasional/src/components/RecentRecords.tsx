@@ -10,13 +10,13 @@ const records: RecordItem[] = [
     id: 'REC-20231024-01',
     time: '10m lalu',
     description: 'Catatan pasca operasi ditambahkan untuk pasien Ahmad F. Penyembuhan berjalan normal.',
-    doctor: 'Dr. Andi',
+    doctor: 'Ns.Arif Rahman H',
   },
   {
     id: 'REC-20231024-02',
     time: '1j lalu',
     description: 'Laporan prosedur selesai untuk Bima. Metode smart clamp berhasil digunakan.',
-    doctor: 'Dr. Hendra',
+    doctor: 'Ns.Desi Putri Hermawati ',
   },
 ]
 

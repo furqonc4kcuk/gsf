@@ -39,9 +39,9 @@ function Catalog() {
           desc="Pemotongan presisi dengan pendarahan minimal dan waktu pemulihan lebih cepat."
           tag="Prosedur"
           prices={[
-            { label: 'Bayi', price: 'Rp 1.5M' },
-            { label: 'Anak', price: 'Rp 1.8M' },
-            { label: 'Dewasa', price: 'Rp 2.5M' },
+            { label: 'DIAMON', price: 'Rp 1.4M' },
+            { label: 'SUPERGOLD', price: 'Rp 1.3M' },
+            { label: 'GOLD', price: 'Rp 1.2M' },
           ]}
         />
         <ServiceCard
@@ -50,9 +50,9 @@ function Catalog() {
           desc="Tanpa jahitan, prosedur cepat yang memungkinkan aktivitas normal segera."
           tag="Prosedur"
           prices={[
-            { label: 'Bayi', price: 'Rp 1.2M' },
-            { label: 'Anak', price: 'Rp 1.4M' },
-            { label: 'Dewasa', price: 'N/A', disabled: true },
+            { label: 'SUPER BABY', price: 'Rp 1.4M' },
+            { label: 'SILVER', price: 'Rp 900' },
+            { label: 'BRONZE', price: 'Rp 600' },
           ]}
         />
         <ServiceCard
@@ -60,7 +60,7 @@ function Catalog() {
           title="Teknologi Tissue Sealer"
           desc="Teknologi penutupan jaringan tanpa bekas luka premium. Penyembuhan tercepat."
           tag="Lanjutan"
-          singlePrice="Rp 3.5M"
+          singlePrice="Rp 1.5M"
         />
         <MedicineCard
           image="https://lh3.googleusercontent.com/aida-public/AB6AXuAjYBXLK-75309ljug97y4qBX4PHVIHqkhWe-vrmA12cWr365tU0YrGEvXordOSvzkDCzz_7mEaPosmSRC1VTI3i3iC8IOCc1VFDeWzKwWWd3NDRCLIHj11PgFTKSMr_SG5rsY7NkBHPncuhp4hF9udQgIZnOmulecQ5o9MT3y2nydbqz5vI8US_OWgRNACYWnsdGPtRJzaekZnnhsdTF_-yLno8c-V6K892uE4kICxcqiKUPufqkNY0A"
@@ -200,7 +200,7 @@ function CartPane({ onOpenReceipt }: { onOpenReceipt: () => void }) {
         <div className="space-y-1.5 text-sm">
           <div className="flex justify-between text-on-surface-variant">
             <span>Subtotal</span>
-            <span>Rp 2.050.000</span>
+            <span>Rp 1.650.000</span>
           </div>
           <div className="flex justify-between text-on-surface-variant">
             <span>Pajak (11%)</span>
@@ -208,7 +208,7 @@ function CartPane({ onOpenReceipt }: { onOpenReceipt: () => void }) {
           </div>
           <div className="flex justify-between text-lg font-headline font-bold text-on-surface pt-2 border-t border-outline-variant mt-2">
             <span>Total</span>
-            <span className="text-primary">Rp 2.275.500</span>
+            <span className="text-primary">Rp 1.875.500</span>
           </div>
         </div>
 

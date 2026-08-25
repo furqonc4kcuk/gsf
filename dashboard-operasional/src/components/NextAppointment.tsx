@@ -17,7 +17,7 @@ function NextAppointment() {
         <p className="text-on-primary-container/80 text-sm mb-4 font-mono">10:30 AM • Smart Clamp</p>
         <div className="flex items-center gap-2 text-xs text-on-primary-container/90 bg-black/20 self-start px-3 py-1.5 rounded backdrop-blur-sm border border-white/10">
           <span className="material-symbols-outlined text-[14px]">stethoscope</span>
-          Ditugaskan ke dr. Hendra
+          Ditugaskan ke Ns. Arif Rahman H
         </div>
       </div>
     </div>

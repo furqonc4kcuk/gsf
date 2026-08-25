@@ -7,10 +7,10 @@ interface ScheduleRow {
 }
 
 const scheduleData: ScheduleRow[] = [
-  { time: '09:15', patient: 'Ahmad F. (8y)', method: 'Metode Laser', doctor: 'Dr. Andi', status: 'in-progress' },
-  { time: '10:30', patient: 'Rizky (10y)', method: 'Smart Clamp', doctor: 'Dr. Hendra', status: 'waiting' },
-  { time: '08:00', patient: 'Bima (12y)', method: 'Konvensional', doctor: 'Dr. Andi', status: 'completed' },
-  { time: '11:00', patient: 'Dika (7y)', method: 'Metode Laser', doctor: 'Dr. Budi', status: 'waiting' },
+  { time: '09:15', patient: 'Ahmad F. (8y)', method: 'Metode Laser', doctor: 'Ns. Arif Rahman H', status: 'in-progress' },
+  { time: '10:30', patient: 'Rizky (10y)', method: 'Smart Clamp', doctor: 'Ns. Desi Putri Hermawati ', status: 'waiting' },
+  { time: '08:00', patient: 'Bima (12y)', method: 'Konvensional', doctor: 'Ns. Umairatul W', status: 'completed' },
+  { time: '11:00', patient: 'Dika (7y)', method: 'Metode Laser', doctor: 'Ns. Ifirlana H', status: 'waiting' },
 ]
 
 function StatusBadge({ status }: { status: ScheduleRow['status'] }) {
