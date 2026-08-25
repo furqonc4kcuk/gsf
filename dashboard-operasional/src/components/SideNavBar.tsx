@@ -1,12 +1,12 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link, useLocation } from 'react-router-dom'
 
 function SideNavBar() {
-  const linkBase =
-    'flex items-center gap-3 px-3 py-2.5 rounded-default font-body text-sm tracking-normal transition-colors duration-200 active:scale-95'
-  const inactive =
-    'text-on-surface-variant hover:text-on-surface hover:bg-surface-container hover:bg-surface-container-highest'
-  const active =
-    'text-primary border-r-2 border-primary bg-surface-container-high font-bold'
+  const location = useLocation()
+  const opsActive = location.pathname === '/' || location.pathname === '/form-pemesanan'
+  const linkBase = 'flex items-center gap-3 px-3 py-2.5 rounded-default font-body text-sm tracking-normal transition-colors duration-200 active:scale-95'
+  const inactive = 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container hover:bg-surface-container-highest'
+  const active = 'text-primary border-r-2 border-primary bg-surface-container-high font-bold'
+  const opsClassName = `${linkBase} ${opsActive ? active : inactive}`
 
   return (
     <nav className="bg-surface-container-lowest h-screen w-64 border-r border-outline-variant flex flex-col h-full overflow-y-auto hidden md:flex shrink-0">
@@ -25,17 +25,17 @@ function SideNavBar() {
       </div>
 
       <div className="px-4 pb-4 border-b border-outline-variant">
-        <button className="w-full bg-primary text-on-primary font-body text-sm font-bold py-2.5 px-4 rounded-default flex items-center justify-center gap-2 hover:bg-primary-fixed-dim transition-colors duration-200 active:scale-95">
+        <Link to="/form-pemesanan" className="w-full bg-primary text-on-primary font-body text-sm font-bold py-2.5 px-4 rounded-default flex items-center justify-center gap-2 hover:bg-primary-fixed-dim transition-colors duration-200 active:scale-95">
           <span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>
             add
           </span>
           Pemesanan Baru
-        </button>
+        </Link>
       </div>
 
       <ul className="flex-1 py-4 flex flex-col gap-1 px-3">
         <li>
-          <NavLink to="/" className={({ isActive }) => `${linkBase} ${isActive ? active : inactive}`} end>
+          <NavLink to="/" className={opsClassName} end>
             <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>
               calendar_month
             </span>

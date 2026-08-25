@@ -5,6 +5,7 @@ import KasirPage from './pages/KasirPage'
 import AkuntansiPage from './pages/AkuntansiPage'
 import CrmPage from './pages/CrmPage'
 import InventarisPage from './pages/InventarisPage'
+import FormPemesananPage from './pages/FormPemesananPage'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="akuntansi" element={<AkuntansiPage />} />
           <Route path="crm" element={<CrmPage />} />
           <Route path="inventaris" element={<InventarisPage />} />
+          <Route path="form-pemesanan" element={<FormPemesananPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
