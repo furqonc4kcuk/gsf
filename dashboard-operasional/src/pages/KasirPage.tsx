@@ -172,7 +172,7 @@ function CartPane({ onOpenReceipt }: { onOpenReceipt: () => void }) {
       </div>
 
       <div className="flex-1 overflow-y-auto p-4 space-y-3">
-        <CartItem name="Khitan Laser" meta="Tipe: Anak" price="Rp 1.800.000" />
+        <CartItem name="Khitan Laser" meta="Tipe: Anak" price="Rp 1.400.000" />
         <CartItem name="Paket Medis Pasca-perawatan A" meta="Barang Inventaris" price="Rp 250.000" />
       </div>
 
